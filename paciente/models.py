@@ -11,7 +11,7 @@ class paciente(models.Model):
     apellidos = models.CharField(max_length=40)
     fecha_nac = models.DateField(verbose_name="Fecha de nacimiento: Ejemplo 05/05/1995")
     direccion = models.CharField(max_length=30, verbose_name="Dirección")
-    num_casa = models.CharField(max_length=6, verbose_name="Número de casa")
+    num_casa = models.CharField(max_length=10, verbose_name="Número de casa")
     telefono = models.CharField(max_length=9, verbose_name="Teléfono")
     email = models.EmailField(verbose_name="Correo Electrónico")
 
