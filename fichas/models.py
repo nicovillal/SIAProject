@@ -10,6 +10,7 @@ class ficha(models.Model):
     profesional = models.ForeignKey('profesionales.profesionale', on_delete=models.CASCADE)
     diagnostico = models.TextField()
     tratamiento = models.TextField()
+    costo = models.CharField(max_length=10, verbose_name="costo tratamiento")
     receta = models.TextField()
     fecha = models.DateField()
     hora = models.TimeField()
