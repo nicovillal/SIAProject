@@ -9,7 +9,7 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Crear Paciente </h1>
                             </div>
-          <form method="post"  >
+          <form method="post"   >
               {% csrf_token %}
 
 
@@ -52,7 +52,7 @@
                        <div>{{ form.email.label}}</div>
                       <div>{{ form.email }}</div>
                   </div>
-                  <button type="submit"> Crear Usuario </button>
+                  <button type="submit" class="btn btn-small btn-success"> Crear o Actualizar Paciente </button>
                   {% endif %}
 
 

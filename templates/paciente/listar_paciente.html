@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    listar Paciente
+{% endblock title %}
+{% block titulo_pagina %}
+    Administración de Pacientes
+{% endblock titulo_pagina %}
+{% block content %}
+        <div class="container-fluid" style="text-align: right;">
+        <a href="{% url 'paciente:crear_paciente' %}" class="btn btn-success btn-icon-split">
+            <span class="text">Registrar Paciente Nuevo</span>
+        </a>
+</div>
+    <br>
+    {% if pacientes %}
+    <table class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th> Rut </th>
+                    <th> Dni Extrangero</th>
+                      <th> Nombre Paciente </th>
+                    <th> Apellido Paciente</th>
+                      <th> Fecha de Nacimiento </th>
+                    <th> Dirección</th>
+                      <th> Numero de casa </th>
+                    <th> Telefono</th>
+                      <th> E-mail </th>
+                    <th> accion </th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for paciente in pacientes %}
+                  <tr>
+                    <td>{{ paciente.rut_paciente }}</td>
+                    <td>{{ paciente.dni_extranjero }}</td>
+                      <td>{{ paciente.nombres }}</td>
+                      <td>{{ paciente.apellidos }}</td>
+                      <td>{{ paciente.fecha_nac }}</td>
+                      <td>{{ paciente.direccion }}</td>
+                      <td>{{ paciente.num_casa }}</td>
+                      <td>{{ paciente.telefono }}</td>
+                      <td>{{ paciente.email }}</td>
+                  <td class="td-actions"><a href="{% url 'paciente:editar_paciente' paciente.id_registro %}" class="btn btn-small btn-success"><i class="btn-icon-only icon-pencil"> </i></a><a href="{% url 'paciente:eliminar_paciente' paciente.id_registro %}" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
+                  </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+    {% else %}
+    <h3>No hay pacientes registrados</h3>
+    {% endif %}
+{% endblock content %}
