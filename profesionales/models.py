@@ -4,10 +4,10 @@ from django.db import models
 # Create your models here.
 
 class profesionale(models.Model):
-    KINE = '0'
-    ENFERMERA = '1'
-    TENS = '2'
-    PROFESION_4 = '3'
+    KINE = 'kine'
+    ENFERMERA = 'enfe'
+    TENS = 'tens'
+    PROFESION_4 = 'profe'
 
     PROFESION_CHOICES = [(KINE, 'Kinesiologo'),
                          (ENFERMERA, 'Enfermera'),
