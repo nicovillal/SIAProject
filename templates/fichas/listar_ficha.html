@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    listar Fichas
+{% endblock title %}
+{% block titulo_pagina %}
+    Administración de Fichas
+{% endblock titulo_pagina %}
+{% block content %}
+        <div class="container-fluid" style="text-align: right;">
+        <a href="{% url 'fichas:crear_ficha' %}" class="btn btn-success btn-icon-split">
+            <span class="text">Registrar Ficha Nueva</span>
+        </a>
+</div>
+    <br>
+    {% if fichas %}
+    <table class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th> paciente </th>
+                    <th> profesional</th>
+                      <th> diagnostico </th>
+                    <th> tratamiento</th>
+                      <th> costo </th>
+                    <th> receta</th>
+                      <th> fecha </th>
+                    <th> hora</th>
+                       <th> acción</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for ficha in fichas %}
+                  <tr>
+                    <td>{{ ficha.paciente }}</td>
+                    <td>{{ ficha.profesional }}</td>
+                      <td>{{ ficha.diagnostico }}</td>
+                      <td>{{ ficha.tratamiento }}</td>
+                      <td>{{ ficha.costo }}</td>
+                      <td>{{ ficha.receta }}</td>
+                      <td>{{ ficha.fecha }}</td>
+                      <td>{{ ficha.hora }}</td>
+
+                  <td class="td-actions"><a href="{% url 'fichas:editar_ficha' ficha.id %}" class="btn btn-small btn-success"><i class="btn-icon-only icon-pencil"> </i></a><a href="{% url 'fichas:eliminar_ficha' ficha.id %}" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
+                  </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+    {% else %}
+    <h3>No hay Ficha Registrada</h3>
+    {% endif %}
+{% endblock content %}

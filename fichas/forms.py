@@ -1,85 +1,77 @@
 from django import forms
-from .models import profesionale
+from .models import ficha
 
 
-class ProfesionalForm(forms.ModelForm):
+class FichaForm(forms.ModelForm):
     class Meta:
-        model = profesionale
-        fields = ['rut_profesional', 'nombres','apellidos', 'fecha_nac', 'direccion', 'num_casa', 'telefono',
-                  'email','profesion']
+        model = ficha
+        fields = ['paciente', 'profesional','diagnostico', 'tratamiento', 'costo', 'receta', 'fecha',
+                  'hora']
         labels = {
-            'rut_profesional': 'Rut del profesional',
-            'nombres': 'Nombres del profesional',
-            'apellidos': 'Apellidos',
-            'fecha_nac': 'Fecha de nacimiento',
-            'direccion': 'Dirección',
-            'num_casa': 'Numero de Casa',
-            'telefono': 'Telefono',
-            'email': 'E-mail',
-            'profesion': 'Profesion ',
+            'paciente': 'Paciente',
+            'profesional': 'Profesional',
+            'diagnostico': 'Diagnostico',
+            'tratamiento': 'Tratamiento',
+            'costo': 'Costo',
+            'receta': 'Receta',
+            'fecha': 'Fecha',
+            'hora': 'Hora',
         }
         widgets = {
-            'rut_profesional': forms.TextInput(
+            'paciente': forms.Select(
                 attrs={
                     'class': 'form-control',
-                    'placeholder':'Ingrese rut del profesional',
-                    'id': 'rut_profesional'
+                    'placeholder':'Ingrese Paciente',
+                    'id': 'paciente'
                 }
             ),
-            'nombres': forms.TextInput(
+            'profesional': forms.Select(
                 attrs={
                     'class': 'form-control',
-                    'placeholder': 'Ingrese nombres del paciente',
-                    'id': 'nombres'
+                    'placeholder': 'Ingrese Profesional',
+                    'id': 'profesional'
                 }
             ),
-            'apellidos': forms.TextInput(
+            'diagnostico': forms.Textarea(
                 attrs={
                     'class': 'form-control',
-                    'placeholder': 'Ingrese apellidos del paciente',
-                    'id': 'apellidos'
+                    'placeholder': 'Ingrese Diagnostico',
+                    'id': 'diagnostico'
                 }
             ),
-            'fecha_nac': forms.TextInput(
+            'tratamiento': forms.Textarea(
                 attrs={
                     'class': 'form-control',
-                    'placeholder': 'Ingrese fecha nacimiento del paciente',
-                    'id': 'fecha_nac'
+                    'placeholder': 'Ingrese Tratamiento',
+                    'id': 'tratamiento'
                 }
             ),
-            'direccion': forms.TextInput(
+            'costo': forms.TextInput(
                 attrs={
                     'class': 'form-control',
-                    'placeholder': 'Ingrese direccion del paciente',
-                    'id': 'direccion'
+                    'placeholder': 'Ingrese Costo',
+                    'id': 'costo'
                 }
             ),
-            'num_casa': forms.TextInput(
+            'receta': forms.TextInput(
                 attrs={
                     'class': 'form-control',
-                    'placeholder': 'Ingrese numero de casa del paciente',
-                    'id': 'num_casa'
+                    'placeholder': 'Ingrese Receta',
+                    'id': 'receta'
                 }
             ),
-            'telefono': forms.TextInput(
+            'fecha': forms.TextInput(
                 attrs={
                     'class': 'form-control',
-                    'placeholder': 'Ingrese telefono del paciente',
-                    'id': 'telefono'
+                    'placeholder': 'Ingrese Fecha',
+                    'id': 'fecha'
                 }
             ),
-            'email': forms.TextInput(
+            'hora': forms.TextInput(
                 attrs={
                     'class': 'form-control',
-                    'placeholder': 'Ingrese E-mail del paciente',
-                    'id': 'email'
-                }
-            ),
-            'profesion': forms.TextInput(
-                attrs={
-                    'class': 'form-control',
-                    'placeholder': 'Ingrese profesion',
-                    'id': 'profesion'
+                    'placeholder': 'Ingrese Hora',
+                    'id': 'hora'
                 }
             ),
         }
