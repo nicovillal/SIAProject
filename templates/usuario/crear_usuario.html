@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    Crear Usuario
+{% endblock title %}
+{% block content %}
+    <div class="text-center">
+        <h1 class="h4 text-gray-900 mb-4">Crear Profesional </h1>
+    </div>
+    <form method="post" >
+        {% csrf_token %}
+        {{ form.as_p }}
+ <div>
+        <button type="submit" class="btn btn-small btn-success"> Crear o Actualizar Usuario
+         <span class="icon text-white-50">
+            <i class="fas fa-exclamation-triangle"></i>
+        </span>
+        </button>
+        <a href="{% url 'usuario:listar_usuario' %}" class="btn btn-warning btn-icon-split">
+        <span class="icon text-white-50">
+            <i class="fas fa-exclamation-triangle"></i>
+        </span>
+            <span class="text" style="text-align: center">Cancelar</span>
+        </a>
+ </div>
+
+    </form>
+
+{% endblock content %}

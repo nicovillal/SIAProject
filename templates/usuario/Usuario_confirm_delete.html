@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    listar Usuarios
+{% endblock title %}
+{% block content %}
+<form method="post">
+    {%  csrf_token %}
+    <h2>Eliminar {{ usuario.username }} ?</h2>
+    <button type="submit">Eliminar</button>
+</form>
+{% endblock content %}

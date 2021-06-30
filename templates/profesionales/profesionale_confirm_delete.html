@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    listar Profesionales
+{% endblock title %}
+{% block content %}
+<form method="post">
+    {%  csrf_token %}
+    <h2>Eliminar {{ profesional.nombres }} ?</h2>
+    <button type="submit">Eliminar</button>
+</form>
+{% endblock content %}
