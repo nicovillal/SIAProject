@@ -53,7 +53,7 @@ class FichaForm(forms.ModelForm):
                     'id': 'costo'
                 }
             ),
-            'receta': forms.TextInput(
+            'receta': forms.Textarea(
                 attrs={
                     'class': 'form-control',
                     'placeholder': 'Ingrese Receta',

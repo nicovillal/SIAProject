@@ -16,15 +16,21 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from paciente.views import Inicio
+from django.contrib.auth.decorators import login_required
+from usuario.views import logoutUsuario,Login
+
 
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',Inicio.as_view(),name='index'),
+    path('',login_required(Inicio.as_view()),name='index'),
+    path('accounts/login/',Login.as_view(template_name='login.html'),name='login'),
+    path('logout/', login_required(logoutUsuario), name='logout'),
     path('paciente/', include(('paciente.urls',"paciente"))),
     path('profesionales/',include(('profesionales.urls','profesionales'))),
     path('citas/', include(('citas.urls', 'citas'))),
     path('fichas/', include(('fichas.urls', 'fichas'))),
+    path('usuario/', include(('usuario.urls', 'usuario'))),
 
 ]
