@@ -9,7 +9,7 @@ class ListadoFicha(ListView):
     template_name = 'fichas/listar_ficha.html'
     context_object_name = 'fichas'
     queryset = ficha.objects.all()
-
+    paginate_by: 10
 
 class CrearFicha(CreateView):
     model = ficha

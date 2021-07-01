@@ -36,6 +36,7 @@ def logoutUsuario(request):
 class ListadoUsuario(ListView):
     model = Usuario
     template_name = 'usuario/listar_usuario.html'
+    paginate_by: 10
 
     def get_queryset(self):
         return self.model.objects.filter(is_active=True)

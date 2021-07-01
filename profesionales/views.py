@@ -12,7 +12,7 @@ class ListadoProfesional(ListView):
     template_name = 'profesionales/listar_profesional.html'
     context_object_name = 'profesionales'
     queryset = profesionale.objects.all()
-
+    paginate_by: 10
 
 class CrearProfesional(CreateView):
     model = profesionale
