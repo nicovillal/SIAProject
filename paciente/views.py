@@ -17,7 +17,7 @@ class ListadoPaciente(ListView):
     template_name = 'paciente/listar_paciente.html'
     context_object_name = 'pacientes'
     queryset = paciente.objects.all()
-    paginate_by: 10
+    paginate_by= 10
 
 
 class CrearPaciente(CreateView):

@@ -10,7 +10,7 @@ class ListadoCita(ListView):
     template_name = 'citas/listar_cita.html'
     context_object_name = 'citas'
     queryset = cita.objects.all()
-    paginate_by:10
+    paginate_by=1
 
 class CrearCita(CreateView):
     model = cita

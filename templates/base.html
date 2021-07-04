@@ -17,6 +17,7 @@
 <!--[if lt IE 9]>
       <script src="{% static 'http://html5shim.googlecode.com/svn/trunk/html5.js' %}"></script>
     <![endif]-->
+
 </head>
 <body>
 <div class="navbar navbar-fixed-top">
@@ -28,15 +29,14 @@
           <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
                             class="icon-cog"></i> Cuenta <b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><a href="javascript:">Configuraciones</a></li>
               <li><a href="javascript:">Ayuda</a></li>
             </ul>
           </li>
           <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                            class="icon-user"></i> Usuario <b class="caret"></b></a>
+                            class="icon-user"></i> {{ user.username }} <b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><a href="javascript:">Perfil</a></li>
-              <li><a href="javascript:">Cerrar Sesión</a></li>
+              <li><a href="#">Perfil</a></li>
+              <li><a href="{% url 'logout' %}">Cerrar Sesión</a></li>
             </ul>
           </li>
         </ul>
@@ -57,10 +57,10 @@
   <div class="subnavbar-inner">
     <div class="container">
       <ul class="mainnav">
-        <li class="active"><a href="{% url 'citas:listar_cita' %}"><i class="icon-calendar"></i><span>Agenda</span> </a> </li>
+        <li class="active"><a href="{% url 'citas:listar_cita' %}"><i class="icon-calendar"></i></i><span>Agenda</span> </a> </li>
         <li><a href="{% url 'profesionales:listar_profesional' %}"><i class="icon-user-md"></i><span>Profesionales</span> </a> </li>
         <li><a href="{% url 'paciente:listar_paciente' %}"><i class="icon-user"></i><span>Pacientes</span> </a></li>
-         <li><a href="{% url 'fichas:listar_ficha' %}"><i class="icon-user"></i><span>Ficha Pacientes</span> </a> </li>
+         <li><a href="{% url 'fichas:listar_ficha' %}"><i class="icon-folder-open"></i><span>Ficha Pacientes</span> </a> </li>
          <li><a href="{% url 'usuario:listar_usuario' %}"><i class="icon-user"></i><span>Gestión Usuarios</span> </a> </li>
           <ul class="dropdown-menu">
             <li><a href="icons.html">Icons</a></li>
@@ -82,7 +82,8 @@
 	      		<div class="widget ">
 
 	      			<div class="widget-header">
-	      				<i class="icon-user"></i>
+                        <h3>{% block simbolo %}{% endblock simbolo %}</h3>
+
 	      				<h3>{% block titulo_pagina %}{% endblock titulo_pagina %}</h3>
 	  				</div> <!-- /widget-header -->
                 <div class="widget-content">
@@ -298,5 +299,7 @@
         });
       });
     </script><!-- /Calendar -->
+{% block script %}
+{% endblock script %}
 </body>
 </html>
