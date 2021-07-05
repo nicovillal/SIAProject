@@ -3,6 +3,26 @@
 {% block title %}
     Listar Paciente
 {% endblock title %}
+{% block busqueda %}
+       <div class="row">
+    <div class="col-md-12 search">
+        <form method="GET" class="navbar-search pull-right">
+        <div id="custom-search-input">
+            <div class="input-group col-md-12">
+            {% csrf_token %}
+            <label>
+                <input type="text" class="search-query" placeholder="Buscar" name="buscar" value="{{ request.GET.buscar }}">
+            </label>
+        <span class="input-group-list">
+            <i class ="icon-search"style="color: #0c0c0c"></i>
+            <button type="submit" class="btn btn-success">Buscar</button>
+        </span>
+            </div>
+        </div>
+        </form>
+    </div>
+    </div>
+          {% endblock busqueda %}
 {% block simbolo %}
     <i class="icon-user"></i>
 {% endblock simbolo %}

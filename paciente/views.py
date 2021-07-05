@@ -3,6 +3,8 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView, TemplateView, ListView, UpdateView, DeleteView
 from paciente.forms import PacienteForm
 from .models import paciente
+from django.shortcuts import render
+from django.db.models import Q
 
 
 # Create your views here.
@@ -15,9 +17,30 @@ class Inicio(TemplateView):
 class ListadoPaciente(ListView):
     model = paciente
     template_name = 'paciente/listar_paciente.html'
-    context_object_name = 'pacientes'
-    queryset = paciente.objects.all()
     paginate_by= 10
+    form_class=PacienteForm
+
+    def get_queryset(self):
+        parametro = self.request.GET.get("buscar", None)
+        print(parametro)
+        queryset = paciente.objects.all()
+        if parametro:
+            queryset = paciente.objects.filter(
+                Q(nombres__icontains=parametro)|
+                Q(apellidos__icontains=parametro)|
+                Q(rut_paciente__icontains=parametro)|
+                Q(dni_extranjero__icontains=parametro)
+            ).distinct()
+            print(queryset)
+        return queryset
+
+
+    def get_context_data(self, **kwargs):
+        contexto = {'pacientes': self.get_queryset(), 'form': self.form_class}
+        return contexto
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name, self.get_context_data())
 
 
 class CrearPaciente(CreateView):

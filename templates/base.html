@@ -40,12 +40,10 @@
             </ul>
           </li>
         </ul>
-        <form class="navbar-search pull-right">
-            <label>
-                <input type="text" class="search-query" placeholder="Search">
-            </label>
-        </form>
+          {% block busqueda %}
+          {% endblock busqueda %}
       </div>
+
       <!--/.nav-collapse -->
     </div>
     <!-- /container -->
@@ -58,18 +56,10 @@
     <div class="container">
       <ul class="mainnav">
         <li class="active"><a href="{% url 'citas:listar_cita' %}"><i class="icon-calendar"></i></i><span>Agenda</span> </a> </li>
-        <li><a href="{% url 'profesionales:listar_profesional' %}"><i class="icon-user-md"></i><span>Profesionales</span> </a> </li>
-        <li><a href="{% url 'paciente:listar_paciente' %}"><i class="icon-user"></i><span>Pacientes</span> </a></li>
-         <li><a href="{% url 'fichas:listar_ficha' %}"><i class="icon-folder-open"></i><span>Ficha Pacientes</span> </a> </li>
-         <li><a href="{% url 'usuario:listar_usuario' %}"><i class="icon-user"></i><span>Gestión Usuarios</span> </a> </li>
-          <ul class="dropdown-menu">
-            <li><a href="icons.html">Icons</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-            <li><a href="pricing.html">Pricing Plans</a></li>
-            <li><a href="login.html">Login</a></li>
-            <li><a href="signup.html">Signup</a></li>
-            <li><a href="error.html">404</a></li>
-          </ul>
+        <li class="active"><a href="{% url 'profesionales:listar_profesional' %}"><i class="icon-user-md"></i><span>Profesionales</span> </a> </li>
+        <li class="active"><a href="{% url 'paciente:listar_paciente' %}"><i class="icon-user"></i><span>Pacientes</span> </a></li>
+         <li class="active"><a href="{% url 'fichas:listar_ficha' %}"><i class="icon-folder-open"></i><span>Ficha Pacientes</span> </a> </li>
+         <li class="active"><a href="{% url 'usuario:listar_usuario' %}"><i class="icon-user"></i><span>Gestión Usuarios</span> </a> </li>
         </li>
       </ul>
     </div>
@@ -105,46 +95,14 @@
       <div class="row">
                     <div class="span3">
                         <h4>
-                            About Free Admin Template</h4>
+                            Terapias Wellness</h4>
                         <ul>
-                            <li><a href="javascript:">EGrappler.com</a></li>
-                            <li><a href="javascript:">Web Development Resources</a></li>
-                            <li><a href="javascript:">Responsive HTML5 Portfolio Templates</a></li>
-                            <li><a href="javascript:">Free Resources and Scripts</a></li>
+                            <li><a href="javascript:">Terapiaswellness.com</a></li>
                         </ul>
                     </div>
                     <!-- /span3 -->
-                    <div class="span3">
-                        <h4>
-                            Support</h4>
-                        <ul>
-                            <li><a href="javascript:">Frequently Asked Questions</a></li>
-                            <li><a href="javascript:">Ask a Question</a></li>
-                            <li><a href="javascript:">Video Tutorial</a></li>
-                            <li><a href="javascript:">Feedback</a></li>
-                        </ul>
-                    </div>
                     <!-- /span3 -->
-                    <div class="span3">
-                        <h4>
-                            Something Legal</h4>
-                        <ul>
-                            <li><a href="javascript:">Read License</a></li>
-                            <li><a href="javascript:">Terms of Use</a></li>
-                            <li><a href="javascript:">Privacy Policy</a></li>
-                        </ul>
-                    </div>
                     <!-- /span3 -->
-                    <div class="span3">
-                        <h4>
-                            Open Source jQuery Plugins</h4>
-                        <ul>
-                            <li><a href="">Open Source jQuery Plugins</a></li>
-                            <li><a href="">HTML5 Responsive Tempaltes</a></li>
-                            <li><a href="">Free Contact Form Plugin</a></li>
-                            <li><a href="">Flat UI PSD</a></li>
-                        </ul>
-                    </div>
                     <!-- /span3 -->
                 </div>
       <!-- /row -->
@@ -158,7 +116,7 @@
   <div class="footer-inner">
     <div class="container">
       <div class="row">
-        <div class="span12"> &copy; 2013 <a href="#">Bootstrap Responsive Admin Template</a>. </div>
+        <div class="span12"> &copy; 2021 <a href="#">Terapias Wellness-Sistema Adminsitrativo</a>. </div>
         <!-- /span12 -->
       </div>
       <!-- /row -->
