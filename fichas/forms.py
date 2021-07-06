@@ -1,5 +1,11 @@
 from django import forms
 from .models import ficha
+class DateInput(forms.DateInput):
+    input_type = 'date'
+
+
+class TimeInput(forms.TimeInput):
+    input_type = 'time'
 
 
 class FichaForm(forms.ModelForm):
@@ -60,18 +66,6 @@ class FichaForm(forms.ModelForm):
                     'id': 'receta'
                 }
             ),
-            'fecha': forms.TextInput(
-                attrs={
-                    'class': 'form-control',
-                    'placeholder': 'Ingrese Fecha',
-                    'id': 'fecha'
-                }
-            ),
-            'hora': forms.TextInput(
-                attrs={
-                    'class': 'form-control',
-                    'placeholder': 'Ingrese Hora',
-                    'id': 'hora'
-                }
-            ),
+            'fecha': DateInput(),
+            'hora': TimeInput(),
         }

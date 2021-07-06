@@ -1,5 +1,11 @@
 from django import forms
 from .models import cita
+class DateInput(forms.DateInput):
+    input_type = 'date'
+
+
+class TimeInput(forms.TimeInput):
+    input_type = 'time'
 
 
 class CitaForm(forms.ModelForm):
@@ -29,20 +35,8 @@ class CitaForm(forms.ModelForm):
                     'id': 'profesional'
                 }
             ),
-            'fecha_cita': forms.TextInput(
-                attrs={
-                    'class': 'form-control',
-                    'placeholder': 'Ingrese Fecha de Cita',
-                    'id': 'fecha_cita'
-                }
-            ),
-            'hora_cita': forms.TextInput(
-                attrs={
-                    'class': 'form-control',
-                    'placeholder': 'Ingrese hora de Cita',
-                    'id': 'hora_cita'
-                }
-            ),
+            'fecha_cita': DateInput(),
+            'hora_cita': TimeInput(),
             'estado': forms.Select(
                 attrs={
                     'class': 'form-control',

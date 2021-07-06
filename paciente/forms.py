@@ -1,5 +1,9 @@
 from django import forms
 from .models import paciente
+class DateInput(forms.DateInput):
+    input_type = 'date'
+
+
 
 
 class PacienteForm(forms.ModelForm):
@@ -47,13 +51,7 @@ class PacienteForm(forms.ModelForm):
                     'id': 'apellidos'
                 }
             ),
-            'fecha_nac': forms.TextInput(
-                attrs={
-                    'class': 'form-control',
-                    'placeholder': 'Ingrese fecha nacimiento del paciente',
-                    'id': 'fecha_nac'
-                }
-            ),
+            'fecha_nac': DateInput(),
             'direccion': forms.TextInput(
                 attrs={
                     'class': 'form-control',

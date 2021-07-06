@@ -30,6 +30,7 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(verbose_name="Correo Electrónico",unique=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
+    is_superuser = models.BooleanField(default=False)
     objects = UsuarioManager()
 
     USERNAME_FIELD='username'

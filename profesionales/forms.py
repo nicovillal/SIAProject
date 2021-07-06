@@ -1,6 +1,9 @@
 from django import forms
 from .models import profesionale
 
+class DateInput(forms.DateInput):
+    input_type = 'date'
+
 
 class ProfesionalForm(forms.ModelForm):
     class Meta:
@@ -40,13 +43,7 @@ class ProfesionalForm(forms.ModelForm):
                     'id': 'apellidos'
                 }
             ),
-            'fecha_nac': forms.TextInput(
-                attrs={
-                    'class': 'form-control',
-                    'placeholder': 'Ingrese fecha nacimiento del profesional',
-                    'id': 'fecha_nac'
-                }
-            ),
+            'fecha_nac': DateInput(),
             'direccion': forms.TextInput(
                 attrs={
                     'class': 'form-control',

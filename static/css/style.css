@@ -54,7 +54,10 @@ textarea {
 	color: #444;
 	text-transform: uppercase;
 }
-
+.limit{
+    width:50px;
+    Word-wrap: break-Word;
+}
 
 
 
