@@ -43,7 +43,14 @@ class ProfesionalForm(forms.ModelForm):
                     'id': 'apellidos'
                 }
             ),
-            'fecha_nac': DateInput(),
+            'fecha_nac': forms.SelectDateWidget(
+                attrs={
+                    'class': 'form-control',
+                    'id': 'fecha_nac'
+                },
+                years=range(1930, 2030)
+            ),
+
             'direccion': forms.TextInput(
                 attrs={
                     'class': 'form-control',

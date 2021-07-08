@@ -10,7 +10,7 @@ class PacienteForm(forms.ModelForm):
     class Meta:
         model = paciente
         fields = ['rut_paciente', 'dni_extranjero','nombres', 'apellidos', 'fecha_nac', 'direccion', 'num_casa', 'telefono',
-                  'email']
+                  'email', 'infomedica']
         labels = {
             'rut_paciente': 'Rut del paciente',
             'dni_extranjero': 'Dni del paciente',
@@ -21,6 +21,7 @@ class PacienteForm(forms.ModelForm):
             'num_casa': 'Numero de Casa',
             'telefono': 'Telefono',
             'email': 'E-mail',
+            'infomedica': 'Información medica',
         }
         widgets = {
             'rut_paciente': forms.TextInput(
@@ -51,7 +52,13 @@ class PacienteForm(forms.ModelForm):
                     'id': 'apellidos'
                 }
             ),
-            'fecha_nac': DateInput(),
+            'fecha_nac': forms.SelectDateWidget(
+                attrs={
+                    'class': 'form-control',
+                    'id': 'fecha_nac'
+                },
+                years=range(1930, 2030)
+            ),
             'direccion': forms.TextInput(
                 attrs={
                     'class': 'form-control',
@@ -78,6 +85,13 @@ class PacienteForm(forms.ModelForm):
                     'class': 'form-control',
                     'placeholder': 'Ingrese E-mail del paciente',
                     'id': 'email'
+                }
+            ),
+            'infomedica': forms.Textarea(
+                attrs={
+                    'class': 'form-control',
+                    'placeholder': 'Ingrese Información medica del paciente',
+                    'id': 'infomedica'
                 }
             ),
         }

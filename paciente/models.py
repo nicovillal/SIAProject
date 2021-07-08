@@ -14,6 +14,7 @@ class paciente(models.Model):
     num_casa = models.CharField(max_length=10, verbose_name="Número de casa")
     telefono = models.CharField(max_length=9, verbose_name="Teléfono")
     email = models.EmailField(verbose_name="Correo Electrónico")
+    infomedica = models.TextField()
 
     def __str__(self):
         return self.nombres + " " + self.apellidos

@@ -82,6 +82,7 @@
                       <th> Numero de casa </th>
                     <th> Telefono</th>
                       <th> E-mail </th>
+                      <th> Info Medica </th>
                     <th> acción </th>
                   </tr>
                 </thead>
@@ -97,6 +98,7 @@
                       <td>{{ paciente.num_casa }}</td>
                       <td>{{ paciente.telefono }}</td>
                       <td>{{ paciente.email }}</td>
+                      <td>{{ paciente.infomedica }}</td>
                   <td class="td-actions"><a href="{% url 'paciente:editar_paciente' paciente.id_registro %}" class="btn btn-small btn-success"><i class="btn-icon-only icon-pencil"> </i></a><a href="{% url 'paciente:eliminar_paciente' paciente.id_registro %}" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
                   </tr>
                 {% endfor %}

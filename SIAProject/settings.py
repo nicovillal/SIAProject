@@ -117,7 +117,7 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = 'es-es'
 
 TIME_ZONE = 'UTC'
-DATE_INPUT_FORMATS='%d/%m/%Y'
+
 
 
 USE_I18N = True
@@ -137,3 +137,10 @@ STATICFILES_DIRS=(os.path.join(BASE_DIR,'static'),)
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL='usuario.Usuario'
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "wellnessprueba@gmail.com"
+EMAIL_HOST_PASSWORD = "wellnessprueba2021"

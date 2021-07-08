@@ -66,6 +66,12 @@ class FichaForm(forms.ModelForm):
                     'id': 'receta'
                 }
             ),
-            'fecha': DateInput(),
+            'fecha': forms.SelectDateWidget(
+                attrs={
+                    'class': 'form-control',
+                    'id': 'fecha'
+                }
+
+            ),
             'hora': TimeInput(),
         }

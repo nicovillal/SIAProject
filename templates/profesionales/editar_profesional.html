@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title %}
-    Crear Paciente
+    Editar Profesional
 {% endblock title %}
 {% block content %}
 
 
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Crear Paciente </h1>
+                                <h1 class="h4 text-gray-900 mb-4">Editar Profesional </h1>
                             </div>
           <form method="post"   >
               {% csrf_token %}
@@ -15,13 +15,9 @@
                   <h2>{{ error }}</h2>
                   {% else %}
                   <div class="form-group">
-                      <div>{{ form.rut_paciente.label}}</div>
-                      <div>{{ form.rut_paciente }}</div>
+                      <div>{{ form.rut_profesional.label}}</div>
+                      <div>{{ form.rut_profesional }}</div>
                     </div>
-                  <div class="form-group">
-                      <div>{{ form.dni_extranjero.label}}</div>
-                   <div>{{ form.dni_extranjero }}</div>
-                  </div>
                   <div class="form-group">
                        <div> {{ form.nombres.label}}</div>
                        <div> {{ form.nombres }}</div>
@@ -29,11 +25,7 @@
                  <div class="form-group">
                       <div> {{ form.apellidos.label}}</div>
                       <div> {{ form.apellidos }}</div>
-                  </div>
-                 <div class="form-group">
-                     <div> {{ form.fecha_nac.label}}</div>
-                      <div>{{ form.fecha_nac }}</div>
-                  </div>
+                 </div>
                  <div class="form-group">
                       <div> {{ form.direccion.label}}</div>
                       <div> {{ form.direccion }}</div>
@@ -50,11 +42,11 @@
                        <div>{{ form.email.label}}</div>
                       <div>{{ form.email }}</div>
                   </div>
-                  <div class="form-group">
-                       <div>{{ form.infomedica.label}}</div>
-                      <div>{{ form.infomedica }}</div>
-
-                  <button type="submit" class="btn btn-small btn-success"> Crear o Actualizar Paciente </button>
+                       <div class="form-group">
+                      <div>{{ form.profesion.label}}</div>
+                   <div>{{ form.profesion }}</div>
+                  </div>
+                  <button type="submit" class="btn btn-small btn-success">Actualizar Profesional </button>
                   {% endif %}
 
 

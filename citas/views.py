@@ -45,6 +45,7 @@ class CrearCita(CreateView):
     form_class = CitaForm
     template_name = 'citas/crear_cita.html'
     success_url = reverse_lazy('citas:listar_cita')
+    print(form_class)
 
 
 class EditarCita(UpdateView):

@@ -33,13 +33,13 @@
 				<ul class="nav pull-right">
 					<li class="">
 						<a href="signup.html" class="">
-							Don't have an account?
+							No tienes Cuenta
 						</a>
 					</li>
 					<li class="">
 						<a href="index.html" class="">
 							<i class="icon-chevron-left"></i>
-							Back to Homepage
+							Volver a Pagina de Inicio
 						</a>
 					</li>
 				</ul>
@@ -60,13 +60,13 @@
 				</div> <!-- /field -->
 				<div class="field">
 					<label for="password">Clave de Usuario:</label>
-					<input type="password" id="password" name="password" value="" placeholder="Contraseña" class="login password-field" required {{ form.password }}
+					<input type="password" id="password" name="password" value="" placeholder="Contraseña" class="login password-field" data-toggle="#password" required {{ form.password }}
+                    <span data-toggle="#password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
 				</div> <!-- /password -->
 			</div> <!-- /login-fields -->
 			<div class="login-actions">
 				<span class="login-checkbox">
 					<input id="Field" name="Field" type="checkbox" class="field login-checkbox" value="First Choice" tabindex="4" />
-					<label class="choice" for="Field">Mantener Sesión</label>
 				</span>
 				<button class="button btn btn-success btn-large">Iniciar Sesión</button>
 			</div> <!-- .actions -->
@@ -74,7 +74,7 @@
 	</div> <!-- /content -->
 </div> <!-- /account-container -->
 <div class="login-extra">
-	<a href="#">Recuperar Contraseña</a>
+	<a href="{%url 'password_reset' %}">Recuperar Contraseña</a>
 </div> <!-- /login-extra -->
 <script src="{% static 'js/jquery-1.7.2.min.js' %}"></script>
 <script src="{% static 'js/bootstrap.js'%}"></script>
