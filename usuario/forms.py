@@ -34,7 +34,7 @@ class FormUsuario(forms.ModelForm):
 
     class Meta:
         model = Usuario
-        fields = ('username', 'nombres', 'apellidos','telefono','email')
+        fields = ('username', 'nombres', 'apellidos','telefono','email','is_superuser')
         widgets = {
             'username': forms.TextInput(
                 attrs={
@@ -65,6 +65,12 @@ class FormUsuario(forms.ModelForm):
                 attrs={
                     'class': 'form-control',
                     'placeholder': 'Ingrese E-mail',
+                }
+            ),
+            'is_superuser': forms.CheckboxInput(
+                attrs={
+                    'class': 'form-control',
+                    'placeholder': 'is_superuser',
                 }
             ),
         }

@@ -23,6 +23,26 @@
     </div>
     </div>
 {% endblock busqueda %}
+{% block navbar %}
+<div class="subnavbar">
+  <div class="subnavbar-inner">
+    <div class="container">
+      <ul class="mainnav">
+        <li><a href="{% url 'citas:listar_cita' %}"><i class="icon-calendar"></i></i><span>Agenda</span> </a> </li>
+        <li><a href="{% url 'profesionales:listar_profesional' %}"><i class="icon-user-md"></i><span>Profesionales</span> </a> </li>
+        <li><a href="{% url 'paciente:listar_paciente' %}"><i class="icon-user"></i><span>Pacientes</span> </a></li>
+         <li class="active"><a href="{% url 'fichas:listar_ficha' %}"><i class="icon-folder-open"></i><span>Ficha Pacientes</span> </a> </li>
+         {% if request.user.is_superuser %}
+          <li><a href="{% url 'usuario:listar_usuario' %}"><i class="icon-user"></i><span>Gestión Usuarios</span> </a> </li>
+        {% endif %}
+          </li>
+      </ul>
+    </div>
+    <!-- /container -->
+  </div>
+  <!-- /subnavbar-inner -->
+</div>
+{% endblock navbar %}
 {% block simbolo %}
     <i class="icon-folder-open"></i>
 {% endblock simbolo %}
