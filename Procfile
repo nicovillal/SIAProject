@@ -1,0 +1,1 @@
+web: gunicorn SIAProject.wsgi:application --log-file -
